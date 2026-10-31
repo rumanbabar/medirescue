@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="MediRescue provides clear, general first-aid guidance for emergencies. Contact local emergency services for urgent help.">
+<title>MediRescue | First-aid guidance when it matters</title>
+<style>
+:root{--red:#d92d3a;--navy:#16324f;--blue:#2364aa;--pale:#f3f7fb;--ink:#172433;--muted:#5d6b7a;--white:#fff;--line:#e2e9f0}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.55}
+a{color:inherit}.wrap{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;background:#ffffffed;backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:5}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:14px 0}.brand{font-size:1.35rem;font-weight:850;color:var(--navy);text-decoration:none}.brand b{color:var(--red)}
+nav{display:flex;gap:1.2rem;align-items:center}nav a{text-decoration:none;font-weight:650;color:var(--muted);font-size:.95rem}
+.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:12px;padding:12px 17px;font-weight:750;text-decoration:none;cursor:pointer;background:var(--red);color:#fff}
+.btn.secondary{background:#eaf1f8;color:var(--navy)}.hero{background:linear-gradient(120deg,#f7fbff,#fff 60%,#fff1f2);padding:64px 0 50px}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center}.eyebrow{color:var(--red);font-weight:800;text-transform:uppercase;letter-spacing:.09em;font-size:.78rem}
+h1{font-size:clamp(2.2rem,5vw,4rem);line-height:1.08;letter-spacing:-.04em;color:var(--navy);margin:.6rem 0 1rem}h2{color:var(--navy);line-height:1.2}p{color:var(--muted)}
+.hero p{font-size:1.1rem;max-width:640px}.hero-actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.4rem}
+.alert{background:#fff;border:1px solid #f4c4c8;border-left:5px solid var(--red);padding:18px;border-radius:14px;box-shadow:0 12px 30px #16324f0d}
+.alert strong{color:var(--red);display:block;margin-bottom:5px}.alert p{margin:0;font-size:.95rem}
+.emergency-symbol{display:grid;place-items:center;background:#fff;border:1px solid var(--line);border-radius:28px;padding:35px;min-height:260px}
+.cross{width:120px;height:120px;position:relative;background:var(--red);border-radius:24px;transform:rotate(4deg);box-shadow:0 18px 35px #d92d3a30}
+.cross:before,.cross:after{content:"";position:absolute;background:white;border-radius:7px;left:50%;top:50%;transform:translate(-50%,-50%)}.cross:before{width:72px;height:24px}.cross:after{height:72px;width:24px}
+section{padding:54px 0}.section-head{display:flex;justify-content:space-between;gap:1rem;align-items:end;margin-bottom:22px}.section-head p{max-width:560px;margin-bottom:0}
+.search{width:min(100%,360px);padding:12px 14px;border:1px solid #cbd7e3;border-radius:12px;font:inherit}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{border:1px solid var(--line);border-radius:18px;padding:20px;background:white;transition:.15s}.card:hover{box-shadow:0 10px 28px #16324f12;transform:translateY(-2px)}.card .icon{font-size:1.8rem}.card h3{margin:.5rem 0;color:var(--navy)}.card p{font-size:.95rem;margin:0 0 1rem}.card button{background:none;border:0;padding:0;color:var(--blue);font-weight:800;cursor:pointer;font:inherit}
+.guide{display:none;background:var(--pale);border:1px solid var(--line);border-radius:18px;padding:24px;margin-top:18px}.guide.show{display:block}.guide h3{margin-top:0;color:var(--navy)}.guide ul{padding-left:1.2rem}.guide li{margin:.45rem 0}.guide .dont{background:#fff0f1;border-left:4px solid var(--red);padding:14px;border-radius:10px}
+.chat-box{background:var(--pale);border-radius:20px;padding:24px}.chat-box label{display:block;font-weight:750;color:var(--navy);margin-bottom:8px}.chat-box textarea{width:100%;min-height:100px;border:1px solid #cbd7e3;border-radius:12px;padding:12px;font:inherit;resize:vertical}.response{margin-top:14px;background:white;border-radius:12px;padding:16px;display:none}.response.show{display:block}
+footer{background:var(--navy);color:#fff;padding:28px 0}footer p{color:#d5e1ed;font-size:.9rem;margin:.5rem 0}
+.small{font-size:.86rem}.pill{display:inline-block;background:#eaf1f8;color:var(--blue);padding:4px 9px;border-radius:100px;font-size:.8rem;font-weight:750}
+@media(max-width:760px){nav{gap:.6rem}nav a:not(.btn){display:none}.hero-grid{grid-template-columns:1fr}.emergency-symbol{min-height:180px}.grid{grid-template-columns:1fr 1fr}.section-head{display:block}.search{margin-top:14px}}
+@media(max-width:480px){.grid{grid-template-columns:1fr}.hero{padding:42px 0}.nav .btn{padding:9px 11px;font-size:.85rem}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="#"><b>✚</b> MediRescue</a>
+<nav><a href="#guides">First-aid guides</a><a href="#assistant">Help assistant</a><a class="btn" href="#urgent">Emergency help</a></nav>
+</div></header>
+<main>
+<section class="hero" id="urgent"><div class="wrap hero-grid">
+<div><div class="eyebrow">Clear steps. Safer choices.</div><h1>First-aid guidance<br>when it matters.</h1>
+<p>Find simple, general guidance for common emergencies—what to do, what to avoid, and when to get professional help.</p>
+<div class="hero-actions"><a class="btn" href="#guides">Find a first-aid guide</a><a class="btn secondary" href="#urgent-note">Emergency safety note</a></div></div>
+<div class="emergency-symbol" aria-label="Medical cross illustration"><div class="cross"></div></div>
+</div></section>
+<div class="wrap" id="urgent-note"><div class="alert"><strong>🚨 If someone may be in immediate danger</strong><p>Call your local emergency number now. Follow the dispatcher’s instructions. This website is general educational information and is not a diagnosis or a substitute for professional care.</p></div></div>
+<section id="guides"><div class="wrap">
+<div class="section-head"><div><span class="eyebrow">Quick reference</span><h2>First-aid guides</h2><p>Select a topic for brief, general first-aid steps. If the person is seriously ill or injured, contact emergency services.</p></div><input class="search" id="search" placeholder="Search guides…" aria-label="Search first-aid guides"></div>
+<div class="grid" id="cards">
+<article class="card" data-key="cpr cardiac arrest unconscious breathing"><div class="icon">❤️</div><h3>CPR / cardiac arrest</h3><p>When a person is unresponsive and not breathing normally.</p><button onclick="openGuide('cpr')">View steps →</button></article>
+<article class="card" data-key="choking airway"><div class="icon">🫁</div><h3>Choking</h3><p>When someone cannot speak, breathe, or cough effectively.</p><button onclick="openGuide('choking')">View steps →</button></article>
+<article class="card" data-key="bleeding wound blood"><div class="icon">🩹</div><h3>Severe bleeding</h3><p>How to respond to serious external bleeding.</p><button onclick="openGuide('bleeding')">View steps →</button></article>
+<article class="card" data-key="burns heat scald"><div class="icon">🔥</div><h3>Burns</h3><p>Immediate care for a heat or scald burn.</p><button onclick="openGuide('burns')">View steps →</button></article>
+<article class="card" data-key="fracture broken bone injury"><div class="icon">🦴</div><h3>Suspected fracture</h3><p>Protect an injured limb and avoid worsening the injury.</p><button onclick="openGuide('fracture')">View steps →</button></article>
+<article class="card" data-key="seizure fit convulsion"><div class="icon">🧠</div><h3>Seizure</h3><p>Keep the person safe while a seizure is happening.</p><button onclick="openGuide('seizure')">View steps →</button></article>
+</div>
+<div class="guide" id="guide" aria-live="polite"></div>
+</div></section>
+<section id="assistant"><div class="wrap"><span class="eyebrow">Guidance, not diagnosis</span><h2>First-aid topic helper</h2><p>Describe the situation in a few words to find a relevant guide. This simple demo does not provide diagnosis or personalized medical advice.</p>
+<div class="chat-box"><label for="question">What is happening?</label><textarea id="question" placeholder="Example: Someone has a burn on their hand…"></textarea><button class="btn" onclick="findHelp()">Find relevant guidance</button><div class="response" id="response" aria-live="polite"></div></div></div></section>
+</main>
+<footer><div class="wrap"><strong>✚ MediRescue</strong><p>Educational first-aid information. Not a replacement for emergency services, medical assessment, or professional advice.</p><p class="small">For urgent or life-threatening situations, call your local emergency number immediately. Follow instructions from qualified emergency responders.</p></div></footer>
+<script>
+const guides={
+cpr:{title:"CPR / suspected cardiac arrest",do:["Check that the scene is safe. Tap the person and shout to check responsiveness.","If unresponsive and not breathing normally (or only gasping), call local emergency services and ask someone to get an AED, if available.","Start chest compressions in the center of the chest: push hard and fast, about 100–120 per minute, allowing the chest to recoil. Follow dispatcher instructions.","Use an AED as soon as it is available and follow its voice prompts. Continue until help takes over or the person shows clear signs of life."],dont:["Do not delay emergency calling or CPR to search online. Do not give food, drink, or medication."]}
+,choking:{title:"Choking",do:["If the person can cough forcefully or speak, encourage them to keep coughing and watch closely.","If they cannot speak, breathe, or cough effectively, call emergency services or have someone call.","For an adult or child over 1 year with severe choking, give up to 5 back blows, then up to 5 abdominal thrusts; repeat as needed. Follow dispatcher guidance.","If the person becomes unresponsive, lower them safely and begin CPR; check the mouth for a visible object when opening the airway."],dont:["Do not perform blind finger sweeps. Do not give food or water. Do not use abdominal thrusts on an infant under 1 year; seek infant-specific trained guidance."]}
+,bleeding:{title:"Severe bleeding",do:["Call emergency services for heavy, spurting, or uncontrolled bleeding.","Apply firm, continuous direct pressure to the wound with clean cloth or gauze.","If blood soaks through, add more material without removing the first layer; keep pressure on.","If trained and appropriate for a life-threatening limb bleed, use a commercial tourniquet and note the time. Keep the person warm and still."],dont:["Do not remove embedded objects; apply pressure around them. Do not repeatedly lift the dressing to check."]}
+,burns:{title:"Burns",do:["Stop the burning process and move away from the source if safe.","Cool the burn under cool running water for 20 minutes as soon as possible.","Remove jewelry or loose clothing near the burn, but do not pull away anything stuck to skin.","Cover loosely with a clean, non-fluffy dressing or cling film laid over the area. Seek medical help for serious, large, deep, facial, hand, genital, or chemical/electrical burns."],dont:["Do not use ice, butter, oils, toothpaste, or creams. Do not burst blisters or peel stuck clothing."]}
+,fracture:{title:"Suspected fracture",do:["Keep the person and injured area still; support it in the position found.","Call emergency services for severe injury, deformity, open fracture, numbness, or major pain.","If there is a wound, cover it with a clean dressing. Apply pressure around—not directly on—an exposed bone.","Arrange medical assessment. Check for changes in sensation, color, or warmth while waiting."],dont:["Do not try to straighten the bone or push it back in. Do not make the person move or bear weight on the injury."]}
+,seizure:{title:"Seizure",do:["Protect the person from nearby hazards; cushion their head and loosen tight clothing around the neck.","Time the seizure. When movements stop, check breathing and place them on their side if breathing normally.","Stay with them and speak calmly as they recover. Call emergency services if it lasts 5 minutes or longer, repeats, is their first seizure, they are injured, pregnant, or have trouble breathing."],dont:["Do not restrain them. Do not put anything in their mouth or give food, drink, or medicine until fully alert."]}
+};
+function openGuide(key){const g=guides[key],el=document.getElementById("guide");el.innerHTML=`<h3>${g.title}</h3><span class="pill">What to do</span><ul>${g.do.map(x=>`<li>${x}</li>`).join("")}</ul><div class="dont"><strong>What not to do</strong><ul>${g.dont.map(x=>`<li>${x}</li>`).join("")}</ul></div><p><strong>Important:</strong> Call your local emergency number when the situation is urgent. Follow professional instructions.</p>`;el.classList.add("show");el.scrollIntoView({behavior:"smooth",block:"nearest"});}
+document.getElementById("search").addEventListener("input",e=>{const q=e.target.value.toLowerCase();document.querySelectorAll("#cards .card").forEach(c=>c.style.display=c.dataset.key.includes(q)||c.innerText.toLowerCase().includes(q)?"":"none");});
+function findHelp(){const q=document.getElementById("question").value.toLowerCase(),r=document.getElementById("response");let key=q.includes("burn")?"burns":q.includes("chok")?"choking":q.includes("bleed")||q.includes("blood")?"bleeding":q.includes("fract")||q.includes("broken bone")?"fracture":q.includes("seiz")||q.includes("fit")?"seizure":q.includes("unconscious")||q.includes("not breathing")||q.includes("cpr")?"cpr":null;r.classList.add("show");r.innerHTML=key?`<strong>Possible relevant guide: ${guides[key].title}</strong><p>Open the guide above for general first-aid steps. This helper cannot assess an emergency. If there is immediate danger, call local emergency services now.</p><button class="btn secondary" onclick="openGuide('${key}')">Open guide</button>`:"<strong>I couldn't match that to a guide.</strong><p>If this may be an emergency, call your local emergency number now. You can browse the first-aid guides above or seek help from a qualified professional."; }
+</script>
+</body></html>
