@@ -1,78 +1,421 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="MediRescue provides clear, general first-aid guidance for emergencies. Contact local emergency services for urgent help.">
-<title>MediRescue | First-aid guidance when it matters</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="MediRescue offers general first-aid education and tools to find emergency help.">
+<title>MediRescue | Emergency first-aid guidance</title>
 <style>
-:root{--red:#d92d3a;--navy:#16324f;--blue:#2364aa;--pale:#f3f7fb;--ink:#172433;--muted:#5d6b7a;--white:#fff;--line:#e2e9f0}
-*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.55}
-a{color:inherit}.wrap{width:min(1120px,92%);margin:auto}
-header{position:sticky;top:0;background:#ffffffed;backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:5}
-.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:14px 0}.brand{font-size:1.35rem;font-weight:850;color:var(--navy);text-decoration:none}.brand b{color:var(--red)}
-nav{display:flex;gap:1.2rem;align-items:center}nav a{text-decoration:none;font-weight:650;color:var(--muted);font-size:.95rem}
-.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:12px;padding:12px 17px;font-weight:750;text-decoration:none;cursor:pointer;background:var(--red);color:#fff}
-.btn.secondary{background:#eaf1f8;color:var(--navy)}.hero{background:linear-gradient(120deg,#f7fbff,#fff 60%,#fff1f2);padding:64px 0 50px}
-.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center}.eyebrow{color:var(--red);font-weight:800;text-transform:uppercase;letter-spacing:.09em;font-size:.78rem}
-h1{font-size:clamp(2.2rem,5vw,4rem);line-height:1.08;letter-spacing:-.04em;color:var(--navy);margin:.6rem 0 1rem}h2{color:var(--navy);line-height:1.2}p{color:var(--muted)}
-.hero p{font-size:1.1rem;max-width:640px}.hero-actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.4rem}
-.alert{background:#fff;border:1px solid #f4c4c8;border-left:5px solid var(--red);padding:18px;border-radius:14px;box-shadow:0 12px 30px #16324f0d}
-.alert strong{color:var(--red);display:block;margin-bottom:5px}.alert p{margin:0;font-size:.95rem}
-.emergency-symbol{display:grid;place-items:center;background:#fff;border:1px solid var(--line);border-radius:28px;padding:35px;min-height:260px}
-.cross{width:120px;height:120px;position:relative;background:var(--red);border-radius:24px;transform:rotate(4deg);box-shadow:0 18px 35px #d92d3a30}
-.cross:before,.cross:after{content:"";position:absolute;background:white;border-radius:7px;left:50%;top:50%;transform:translate(-50%,-50%)}.cross:before{width:72px;height:24px}.cross:after{height:72px;width:24px}
-section{padding:54px 0}.section-head{display:flex;justify-content:space-between;gap:1rem;align-items:end;margin-bottom:22px}.section-head p{max-width:560px;margin-bottom:0}
-.search{width:min(100%,360px);padding:12px 14px;border:1px solid #cbd7e3;border-radius:12px;font:inherit}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{border:1px solid var(--line);border-radius:18px;padding:20px;background:white;transition:.15s}.card:hover{box-shadow:0 10px 28px #16324f12;transform:translateY(-2px)}.card .icon{font-size:1.8rem}.card h3{margin:.5rem 0;color:var(--navy)}.card p{font-size:.95rem;margin:0 0 1rem}.card button{background:none;border:0;padding:0;color:var(--blue);font-weight:800;cursor:pointer;font:inherit}
-.guide{display:none;background:var(--pale);border:1px solid var(--line);border-radius:18px;padding:24px;margin-top:18px}.guide.show{display:block}.guide h3{margin-top:0;color:var(--navy)}.guide ul{padding-left:1.2rem}.guide li{margin:.45rem 0}.guide .dont{background:#fff0f1;border-left:4px solid var(--red);padding:14px;border-radius:10px}
-.chat-box{background:var(--pale);border-radius:20px;padding:24px}.chat-box label{display:block;font-weight:750;color:var(--navy);margin-bottom:8px}.chat-box textarea{width:100%;min-height:100px;border:1px solid #cbd7e3;border-radius:12px;padding:12px;font:inherit;resize:vertical}.response{margin-top:14px;background:white;border-radius:12px;padding:16px;display:none}.response.show{display:block}
-footer{background:var(--navy);color:#fff;padding:28px 0}footer p{color:#d5e1ed;font-size:.9rem;margin:.5rem 0}
-.small{font-size:.86rem}.pill{display:inline-block;background:#eaf1f8;color:var(--blue);padding:4px 9px;border-radius:100px;font-size:.8rem;font-weight:750}
-@media(max-width:760px){nav{gap:.6rem}nav a:not(.btn){display:none}.hero-grid{grid-template-columns:1fr}.emergency-symbol{min-height:180px}.grid{grid-template-columns:1fr 1fr}.section-head{display:block}.search{margin-top:14px}}
-@media(max-width:480px){.grid{grid-template-columns:1fr}.hero{padding:42px 0}.nav .btn{padding:9px 11px;font-size:.85rem}}
-</style>
-</head>
+:root{--red:#d92d3a;--navy:#16324f;--blue:#2364aa;--pale:#f3f7fb;--ink:#172433;--muted:#5d6b7a;--line:#e2e9f0}
+*{box-sizing:border-box}body{margin:0;font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink)}a{color:inherit}.wrap{width:min(1100px,92%);margin:auto}
+header{position:sticky;top:0;background:#ffffffed;border-bottom:1px solid var(--line);z-index:3}.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:1rem}.brand{font-size:1.35rem;font-weight:850;color:var(--navy);text-decoration:none}.brand b{color:var(--red)}nav{display:flex;gap:1rem}nav a{text-decoration:none;color:var(--muted);font-weight:700}
+.btn{display:inline-block;border:0;border-radius:12px;padding:11px 16px;background:var(--red);color:#fff;text-decoration:none;font-weight:800;cursor:pointer}.secondary{background:#eaf1f8;color:var(--navy)}
+.hero{padding:56px 0;background:linear-gradient(120deg,#f5faff,#fff1f2)}h1{font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.08;letter-spacing:-.04em;color:var(--navy);margin:.6rem 0 1rem}h2{color:var(--navy);line-height:1.2}.eyebrow{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--red);font-weight:850}.hero p{font-size:1.1rem;max-width:650px;color:var(--muted)}.alert{border:1px solid #f2c2c7;border-left:5px solid var(--red);border-radius:14px;padding:17px;margin:22px 0;background:white}.alert strong{color:var(--red)}section{padding:42px 0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.card{border:1px solid var(--line);border-radius:16px;padding:19px;background:#fff}.card h3{color:var(--navy);margin:.45rem 0}.card p{color:var(--muted);margin:.3rem 0 1rem}.icon{font-size:1.8rem}.pill{display:inline-block;background:#eaf1f8;color:var(--blue);padding:3px 9px;border-radius:99px;font-size:.8rem;font-weight:800}.guide{display:none;background:var(--pale);padding:20px;border-radius:15px;margin-top:16px}.guide.show{display:block}.guide .dont{background:#fff0f1;border-left:4px solid var(--red);padding:12px;border-radius:10px}.box{background:var(--pale);border-radius:17px;padding:22px}.box input,.box textarea{width:100%;padding:12px;border:1px solid #cbd7e3;border-radius:10px;font:inherit;margin:8px 0}.result{display:none;background:white;border-radius:12px;padding:15px;margin-top:12px}.result.show{display:block}.muted{color:var(--muted)}.small{font-size:.88rem}footer{background:var(--navy);color:white;padding:26px 0}footer p{color:#d5e1ed}.contact a{font-weight:800;color:var(--blue)}@media(max-width:700px){nav a{display:none}.grid{grid-template-columns:1fr 1fr}}@media(max-width:480px){.grid{grid-template-columns:1fr}.hero{padding:38px 0}}
+
+/* Friendly cartoon-style medical visuals */
+.med-visual{width:100%;height:142px;display:flex;align-items:center;justify-content:center;background:linear-gradient(145deg,#eef6ff,#fff0f1);border-radius:13px;margin:0 0 13px;overflow:hidden}
+.med-visual svg{width:100%;height:100%;max-width:220px}
+.card .med-visual{height:128px}
+
+.cpr-demo{margin:16px 0;padding:16px;border-radius:14px;background:#fff;border:1px solid #dce6ef}
+.cpr-demo h4{margin:0 0 8px;color:var(--navy)}
+.cpr-animation{height:115px;position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#eef6ff;border-radius:12px}
+.cpr-person{width:155px;height:48px;position:relative;background:#2364aa;border-radius:24px;animation:chest-recoil 1s ease-in-out infinite}
+.cpr-person:before{content:'';position:absolute;left:12px;top:-27px;width:42px;height:42px;border-radius:50%;background:#f2c6a5;border:3px solid #16324f}
+.cpr-person:after{content:'+';position:absolute;left:70px;top:5px;color:#fff;font-size:27px;font-weight:900}
+.cpr-hands{position:absolute;top:22px;left:calc(50% - 25px);width:50px;height:22px;border-radius:10px;background:#f2c6a5;border:3px solid #16324f;animation:press-release 1s ease-in-out infinite}
+@keyframes press-release{0%,100%{transform:translateY(-4px)}50%{transform:translateY(10px)}}
+@keyframes chest-recoil{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.82)}}
+.aed-steps{padding:12px;background:#eaf7f1;border-left:4px solid #23835b;border-radius:10px;margin-top:12px}
+
+
+/* Friendly motion across every guide card and section */
+@keyframes medFloat {0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes medGlow {0%,100%{box-shadow:0 0 0 0 rgba(35,100,170,.08)}50%{box-shadow:0 0 0 7px rgba(35,100,170,.04)}}
+@keyframes medPulse {0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+@keyframes medShimmer {0%{background-position:0% 50%}100%{background-position:200% 50%}}
+.med-visual{overflow:hidden;position:relative;border-radius:14px;background:linear-gradient(120deg,#f3f8ff,#fff5f2,#f3f8ff);background-size:200% 100%;animation:medShimmer 9s ease-in-out infinite}
+.med-visual svg{display:block;width:100%;height:auto;animation:medFloat 4.2s ease-in-out infinite;transform-origin:center}
+.card{transition:transform .22s ease,box-shadow .22s ease,border-color .22s ease}
+.card:hover,.card:focus-within{transform:translateY(-5px);box-shadow:0 12px 28px rgba(22,50,79,.12);border-color:#bfd5ea}
+.card .icon{display:inline-block;animation:medPulse 3.3s ease-in-out infinite;transform-origin:center}
+.card:nth-child(3n+2) .med-visual svg{animation-delay:-1.1s}
+.card:nth-child(3n) .med-visual svg{animation-delay:-2.2s}
+section h2{position:relative}
+.btn{transition:transform .18s ease,box-shadow .18s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 5px 14px rgba(22,50,79,.16)}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+.drowning-visual{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}.drown-step{flex:1 1 130px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center;animation:medFloat 4s ease-in-out infinite}.drown-step:nth-child(2){animation-delay:-1.3s}.drown-step:nth-child(3){animation-delay:-2.4s}.drown-step span{display:block;font-size:1.8rem}.drown-step b,.drown-step small{display:block}.drown-step small{color:var(--muted);margin-top:4px}
+.aed-safety-visual{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:12px 0}.aed-safety-visual>div{padding:10px 6px;text-align:center;border-radius:12px;background:#fff;border:1px solid var(--line);animation:medFloat 3.8s ease-in-out infinite}.aed-safety-visual>div:nth-child(2){animation-delay:-.8s}.aed-safety-visual>div:nth-child(3){animation-delay:-1.6s}.aed-safety-visual>div:nth-child(4){animation-delay:-2.4s}.aed-safety-visual span,.aed-safety-visual b{display:block}.aed-safety-visual span{font-size:1.55rem}.aed-safety-visual b{font-size:.82rem}@media(max-width:520px){.aed-safety-visual{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+
+/* Animated visual prompt badges to make every topic feel active */
+.visual-prompt{display:flex;align-items:center;gap:8px;margin:10px 0 12px;padding:9px 11px;border-radius:11px;background:linear-gradient(100deg,#eef7ff,#fff4f4,#eef7ff);background-size:200% 100%;animation:medShimmer 5s linear infinite;color:var(--navy);font-size:.84rem;font-weight:750}
+.visual-prompt .prompt-dot{width:9px;height:9px;flex:0 0 9px;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 rgba(217,45,58,.35);animation:promptPing 1.8s infinite}
+@keyframes promptPing{0%{box-shadow:0 0 0 0 rgba(217,45,58,.4)}70%{box-shadow:0 0 0 7px rgba(217,45,58,0)}100%{box-shadow:0 0 0 0 rgba(217,45,58,0)}}
+@keyframes infantPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}} .card[data-key*="baby"] .med-visual{animation:infantPulse 2.4s ease-in-out infinite;transform-origin:center;}
+
+
+/* Fast topic navigation: crisp, accessible icon tiles */
+.topic-hub{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:20px}
+.topic-tile{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;min-height:112px;padding:13px 8px;border:1px solid #dbe5ee;border-radius:15px;background:#fff;color:var(--navy);font:700 .9rem/1.2 system-ui;cursor:pointer;transition:transform .15s,border-color .15s,box-shadow .15s}
+.topic-tile:hover,.topic-tile:focus-visible{transform:translateY(-3px);border-color:var(--blue);box-shadow:0 7px 18px #16324f16;outline:2px solid #2364aa55}
+.topic-symbol{display:grid;place-items:center;width:46px;height:46px;border-radius:13px;background:#eaf2fb;color:var(--blue);font-size:1.65rem;font-weight:900}
+@media(max-width:700px){.topic-hub{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:420px){.topic-hub{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Refined accessible topic tabs */
+#cards{display:grid;grid-template-columns:1fr;gap:16px}
+#cards .card{display:none;max-width:900px;width:100%;margin:0 auto;padding:clamp(18px,3vw,30px);box-shadow:0 8px 28px #16324f0d}
+#cards .card.active-topic{display:block}
+#cards .card.active-topic h3{font-size:1.35rem}
+#cards .card.active-topic p,#cards .card.active-topic li{line-height:1.7}
+#topicHub{display:flex;flex-wrap:wrap;gap:9px}
+#topicHub .topic-tile{flex-direction:row;min-height:0;justify-content:flex-start;padding:10px 14px;border-radius:999px;gap:9px}
+#topicHub .topic-symbol{width:32px;height:32px;flex:0 0 32px;border-radius:50%;font-size:1.1rem}
+#topicHub .topic-tile[aria-selected="true"]{background:var(--navy);color:#fff;border-color:var(--navy)}
+#topicHub .topic-tile[aria-selected="true"] .topic-symbol{background:#fff;color:var(--navy)}
+.topic-instruction{max-width:900px;margin:0 auto 12px;color:var(--muted);font-size:.92rem}
+@media(max-width:520px){#topicHub .topic-tile{font-size:.82rem;padding:8px 10px}}
+
+/* Bold first-aid-kit inspired topic tiles */
+#topicHub .topic-tile{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;min-width:145px;min-height:142px;padding:18px 14px;border:3px solid var(--red);border-radius:18px;background:#fff;color:var(--navy);font-weight:900;font-size:1.02rem;text-align:center;box-shadow:0 5px 0 #b91f2b,0 10px 22px #16324f12;transition:transform .16s,box-shadow .16s,background .16s}
+#topicHub .topic-tile:before{content:"";position:absolute;top:-3px;left:50%;transform:translateX(-50%);width:42px;height:9px;border-radius:0 0 7px 7px;background:var(--red)}
+#topicHub .topic-tile:hover{transform:translateY(-3px);box-shadow:0 8px 0 #b91f2b,0 14px 25px #16324f20}
+#topicHub .topic-symbol{width:58px;height:58px;display:grid;place-items:center;border-radius:14px;background:#fff0f1;border:2px solid #f3c2c6;color:var(--red);font-size:2rem;font-weight:950}
+#topicHub .topic-tile[aria-selected="true"]{background:#fff0f1;color:var(--navy);border-color:var(--red);box-shadow:inset 0 0 0 3px #fff,0 6px 0 #b91f2b}
+#topicHub .topic-tile[aria-selected="true"] .topic-symbol{background:var(--red);color:#fff;border-color:var(--red)}
+@media(max-width:520px){#topicHub .topic-tile{min-width:calc(50% - 8px);min-height:125px;font-size:.95rem}}
+
+
+/* Larger, clear first-aid panels inspired by the supplied reference */
+#topicHub{
+display:grid;
+grid-template-columns:repeat(2,minmax(0,1fr));
+gap:14px;
+margin:22px 0;
+}
+#topicHub .topic-tile{
+display:flex;
+flex-direction:row;
+align-items:center;
+justify-content:flex-start;
+gap:14px;
+min-height:94px;
+padding:16px;
+border:2px solid #f0c6cb;
+border-left:6px solid var(--red);
+border-radius:18px;
+background:#fff;
+color:var(--navy);
+font-size:1rem;
+font-weight:850;
+line-height:1.35;
+text-align:left;
+box-shadow:0 5px 15px rgba(22,50,79,.07);
+}
+#topicHub .topic-symbol{
+display:grid;
+place-items:center;
+width:54px;
+height:54px;
+flex:0 0 54px;
+border-radius:14px;
+background:#fff0f1;
+color:var(--red);
+font-size:1.7rem;
+}
+#topicHub .topic-tile[aria-selected="true"]{
+background:#fff5f5;
+color:var(--navy);
+border-color:var(--red);
+box-shadow:0 8px 22px rgba(217,45,58,.15);
+}
+#topicHub .topic-tile[aria-selected="true"] .topic-symbol{
+background:var(--red);
+color:#fff;
+}
+#cards .card.active-topic{
+border:2px solid #f0c6cb;
+border-left:7px solid var(--red);
+border-radius:20px;
+background:#fff;
+box-shadow:0 10px 30px rgba(22,50,79,.09);
+padding:clamp(20px,4vw,34px);
+}
+@media(max-width:520px){
+#topicHub{grid-template-columns:1fr;gap:12px}
+#topicHub .topic-tile{min-height:88px;padding:14px}
+}
+
+</style></head>
 <body>
-<header><div class="wrap nav">
-<a class="brand" href="#"><b>✚</b> MediRescue</a>
-<nav><a href="#guides">First-aid guides</a><a href="#assistant">Help assistant</a><a class="btn" href="#urgent">Emergency help</a></nav>
-</div></header>
+<header><div class="wrap nav"><a class="brand" href="#"><b>✚</b> MediRescue</a><nav><a href="#guides">First aid</a><a href="#bandages">Bandages</a><a href="#assistant">Assistant</a><a href="#contacts">Emergency contacts</a><a href="#locator">Hospitals</a></nav></div></header>
 <main>
-<section class="hero" id="urgent"><div class="wrap hero-grid">
-<div><div class="eyebrow">Clear steps. Safer choices.</div><h1>First-aid guidance<br>when it matters.</h1>
-<p>Find simple, general guidance for common emergencies—what to do, what to avoid, and when to get professional help.</p>
-<div class="hero-actions"><a class="btn" href="#guides">Find a first-aid guide</a><a class="btn secondary" href="#urgent-note">Emergency safety note</a></div></div>
-<div class="emergency-symbol" aria-label="Medical cross illustration"><div class="cross"></div></div>
-</div></section>
-<div class="wrap" id="urgent-note"><div class="alert"><strong>🚨 If someone may be in immediate danger</strong><p>Call your local emergency number now. Follow the dispatcher’s instructions. This website is general educational information and is not a diagnosis or a substitute for professional care.</p></div></div>
-<section id="guides"><div class="wrap">
-<div class="section-head"><div><span class="eyebrow">Quick reference</span><h2>First-aid guides</h2><p>Select a topic for brief, general first-aid steps. If the person is seriously ill or injured, contact emergency services.</p></div><input class="search" id="search" placeholder="Search guides…" aria-label="Search first-aid guides"></div>
-<div class="grid" id="cards">
-<article class="card" data-key="cpr cardiac arrest unconscious breathing"><div class="icon">❤️</div><h3>CPR / cardiac arrest</h3><p>When a person is unresponsive and not breathing normally.</p><button onclick="openGuide('cpr')">View steps →</button></article>
-<article class="card" data-key="choking airway"><div class="icon">🫁</div><h3>Choking</h3><p>When someone cannot speak, breathe, or cough effectively.</p><button onclick="openGuide('choking')">View steps →</button></article>
-<article class="card" data-key="bleeding wound blood"><div class="icon">🩹</div><h3>Severe bleeding</h3><p>How to respond to serious external bleeding.</p><button onclick="openGuide('bleeding')">View steps →</button></article>
-<article class="card" data-key="burns heat scald"><div class="icon">🔥</div><h3>Burns</h3><p>Immediate care for a heat or scald burn.</p><button onclick="openGuide('burns')">View steps →</button></article>
-<article class="card" data-key="fracture broken bone injury"><div class="icon">🦴</div><h3>Suspected fracture</h3><p>Protect an injured limb and avoid worsening the injury.</p><button onclick="openGuide('fracture')">View steps →</button></article>
-<article class="card" data-key="seizure fit convulsion"><div class="icon">🧠</div><h3>Seizure</h3><p>Keep the person safe while a seizure is happening.</p><button onclick="openGuide('seizure')">View steps →</button></article>
+<section id="quick-find"><div class="wrap"><span class="eyebrow">Find help quickly</span><h2>What do you need help with?</h2><p class="muted">Tap a topic icon to jump to its first-aid guide.</p><div class="topic-hub" id="topicHub">
+<button class="topic-tile" data-find="vitals"><span class="topic-symbol">♥</span><span>Vital signs</span></button>
+<button class="topic-tile" data-find="cpr"><span class="topic-symbol">♡</span><span>CPR / AED</span></button>
+<button class="topic-tile" data-find="chok"><span class="topic-symbol">〰</span><span>Choking</span></button>
+<button class="topic-tile" data-find="bleed"><span class="topic-symbol">✚</span><span>Bleeding</span></button>
+<button class="topic-tile" data-find="burn"><span class="topic-symbol">♨</span><span>Burns</span></button>
+<button class="topic-tile" data-find="fracture"><span class="topic-symbol">⌁</span><span>Fractures</span></button>
+<button class="topic-tile" data-find="electric"><span class="topic-symbol">ϟ</span><span>Electric shock</span></button>
+<button class="topic-tile" data-find="danger"><span class="topic-symbol">⚠</span><span>Danger signs</span></button>
+<button class="topic-tile" data-find="baby"><span class="topic-symbol">＋</span><span>Baby emergencies</span></button>
+<button class="topic-tile" data-find="ingestion"><span class="topic-symbol">⚠</span><span>Poison / ingestion</span></button>
+<button class="topic-tile" data-find="bite"><span class="topic-symbol">♧</span><span>Bites & stings</span></button>
+<button class="topic-tile" data-find="drown"><span class="topic-symbol">≈</span><span>Drowning</span></button>
+<button class="topic-tile" data-find="fire"><span class="topic-symbol">♨</span><span>Fire safety</span></button>
+<button class="topic-tile" data-find="car"><span class="topic-symbol">＋</span><span>Road accidents</span></button>
+</div></div></section>
+<section class="hero"><div class="wrap"><span class="eyebrow">Clear steps. Safer choices.</span><h1>First-aid guidance<br>when it matters.</h1><p>Find general first-aid information, discover ways to reach emergency help, and search for nearby hospitals.</p><a class="btn" href="#guides">Find a first-aid guide</a><div class="alert"><strong>🚨 Immediate danger?</strong><br>Call your local emergency number now. Follow the emergency dispatcher’s instructions. This website is educational and is not a diagnosis or a substitute for professional care.</div></div></section>
+
+<section id="guides"><div class="wrap"><span class="eyebrow">Quick reference</span><h2>First-aid guides</h2><p class="muted">Select a topic. If the person is seriously ill or injured, call emergency services.</p><div class="grid" id="cards">
+<div class="card" data-key="aed defibrillator shock safety"><div class="med-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Cartoon AED device with safety symbol"><circle cx="110" cy="70" r="53" fill="#e4f6ee"/><rect x="73" y="25" width="74" height="91" rx="12" fill="#fff" stroke="#16324f" stroke-width="3"/><rect x="84" y="38" width="52" height="27" rx="5" fill="#dcecff"/><path d="M112 40 99 53h10l-2 10 14-15h-10z" fill="#e6a700"/><circle cx="110" cy="87" r="15" fill="#d92d3a"/><path d="M102 87h16m-8-8v16" stroke="#fff" stroke-width="4" stroke-linecap="round"/></svg></div><div class="icon">⚡</div><h3>AED safety</h3><p>Turn it on and follow every voice and visual prompt. Clear everyone when told.</p><button class="btn secondary" onclick="showGuide('cpr')">View AED steps</button></div>
+<div class="card" data-key="cpr cardiac arrest unconscious breathing"><div class="med-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Cartoon illustration representing CPR"><circle cx="110" cy="70" r="53" fill="#dcecff"/><rect x="48" y="80" width="124" height="30" rx="15" fill="#2364aa"/><circle cx="78" cy="64" r="19" fill="#f2c6a5"/><path d="M59 60q18-31 38 0" fill="#16324f"/><path d="M92 80h52l15 20H92z" fill="#fff" stroke="#16324f" stroke-width="3"/><path d="M112 86v19m-9-9h18" stroke="#d92d3a" stroke-width="5" stroke-linecap="round"/><path d="M92 57q15-18 30 0" fill="none" stroke="#d92d3a" stroke-width="4" stroke-linecap="round"/></svg></div><div class="icon">❤️</div><h3>CPR / cardiac arrest</h3><p>Unresponsive and not breathing normally.</p><button class="btn secondary" onclick="showGuide('cpr')">View steps</button></div>
+<div class="card" data-key="choking airway"><div class="med-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Cartoon illustration representing choking first aid"><circle cx="110" cy="70" r="53" fill="#fff0d9"/><circle cx="110" cy="45" r="22" fill="#f2c6a5"/><path d="M88 42q22-30 44 0" fill="#16324f"/><rect x="76" y="69" width="68" height="55" rx="22" fill="#d92d3a"/><path d="M82 84q28 22 56 0" fill="none" stroke="#f2c6a5" stroke-width="12" stroke-linecap="round"/><path d="M99 52h22" stroke="#16324f" stroke-width="3" stroke-linecap="round"/><circle cx="110" cy="60" r="5" fill="#d92d3a"/></svg></div><div class="icon">🫁</div><h3>Choking</h3><p>Cannot speak, breathe, or cough effectively.</p><button class="btn secondary" onclick="showGuide('choking')">View steps</button></div>
+<div class="card" data-key="electrocution electric shock electricity"><div class="med-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Illustration of electrical safety"><circle cx="110" cy="70" r="53" fill="#fff4cf"/><path d="M119 20 76 78h31l-8 42 45-62h-31z" fill="#e6a700" stroke="#16324f" stroke-width="3" stroke-linejoin="round"/><circle cx="110" cy="70" r="53" fill="none" stroke="#16324f" stroke-width="3"/></svg></div><div class="icon">⚡</div><h3>Electric shock</h3><p><strong>Do not touch the person or use a stick.</strong> Cut power safely and call for trained help; CPR only when the scene is safe.</p><button class="btn secondary" onclick="showGuide('electrocution')">View steps</button></div>
+<div class="card" data-key="bleeding wound blood"><div class="med-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Cartoon illustration representing bleeding control"><circle cx="110" cy="70" r="53" fill="#e3f6ee"/><path d="M60 82q50-38 100 0v27H60z" fill="#f2c6a5"/><rect x="83" y="54" width="54" height="45" rx="10" fill="#fff" stroke="#2364aa" stroke-width="3"/><path d="M110 60v32m-16-16h32" stroke="#d92d3a" stroke-width="7" stroke-linecap="round"/><path d="M73 50l-10-10m84 10 10-10" stroke="#2364aa" stroke-width="4" stroke-linecap="round"/></svg></div><div class="icon">🩹</div><h3>Severe bleeding</h3><p>Responding to serious external bleeding.</p><button class="btn secondary" onclick="showGuide('bleeding')">View steps</button></div>
+<div class="card" data-key="fire fire extinguisher fire blanket smoke"><div class="med-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Fire extinguisher illustration"><circle cx="110" cy="70" r="53" fill="#ffe6e7"/><rect x="83" y="42" width="54" height="72" rx="12" fill="#d92d3a" stroke="#16324f" stroke-width="3"/><path d="M96 42v-13h28v13m-4-13h15l12 12" fill="none" stroke="#16324f" stroke-width="5" stroke-linecap="round"/><rect x="91" y="62" width="38" height="20" rx="4" fill="#fff"/><path d="M110 66v12m-6-6h12" stroke="#d92d3a" stroke-width="4"/></svg></div><div class="icon">🧯</div><h3>Fire / extinguisher / blanket</h3><p>Escape first; fight only a small fire with a safe exit.</p><button class="btn secondary" onclick="showGuide('burn')">View steps</button></div>
+<div class="card" data-key="car accident crash trapped window headrest"><div class="med-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Car accident safety illustration"><circle cx="110" cy="70" r="53" fill="#e5f2ff"/><path d="M48 88l13-30q4-9 16-9h63q12 0 18 11l12 28v20H48z" fill="#2364aa" stroke="#16324f" stroke-width="3"/><path d="M76 55h55l15 23H67z" fill="#fff" stroke="#16324f" stroke-width="3"/><circle cx="75" cy="108" r="13" fill="#16324f"/><circle cx="150" cy="108" r="13" fill="#16324f"/></svg></div><div class="icon">🚗</div><h3>Car accident / escape</h3><p>Scene safety, first aid, and emergency window escape.</p><button class="btn secondary" onclick="showGuide('carcrash')">View steps</button></div>
+<div class="card" data-key="burn heat scald"><div class="med-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Cartoon illustration representing burn cooling"><circle cx="110" cy="70" r="53" fill="#fff0d9"/><path d="M110 26q-28 31-4 48-2-18 13-25 25 34-7 52-31-2-33-26 2-21 15-49-1 19 16 25z" fill="#f59e0b"/><path d="M68 94q42 24 84 0" fill="none" stroke="#2364aa" stroke-width="8" stroke-linecap="round"/><path d="M78 105q32 16 64 0" fill="none" stroke="#7db9f4" stroke-width="6" stroke-linecap="round"/></svg></div><div class="icon">🔥</div><h3>Burns</h3><p>Immediate care for heat or scald burns.</p><button class="btn secondary" onclick="showGuide('burn')">View steps</button></div>
+<div class="card" data-key="fracture broken bone injury"><div class="med-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Cartoon illustration representing a supported injured limb"><circle cx="110" cy="70" r="53" fill="#e8eaff"/><rect x="54" y="57" width="112" height="28" rx="14" transform="rotate(-20 110 70)" fill="#f2c6a5"/><rect x="68" y="48" width="84" height="42" rx="8" transform="rotate(-20 110 70)" fill="#fff" stroke="#2364aa" stroke-width="3"/><path d="M91 48l18 42m-2-47 18 42" stroke="#d92d3a" stroke-width="4" transform="rotate(-20 110 70)"/></svg></div><div class="icon">🦴</div><h3>Suspected fracture</h3><p>Protect an injured limb.</p><button class="btn secondary" onclick="showGuide('fracture')">View steps</button></div>
+<div class="card" data-key="drowning water rescue submerged breathing"><div class="med-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Illustration of reaching a person in water with a flotation aid"><circle cx="110" cy="70" r="53" fill="#e3f4ff"/><path d="M22 88q22-13 44 0t44 0t44 0t44 0v33H22z" fill="#68b8e8"/><path d="M22 104q22-13 44 0t44 0t44 0t44 0" fill="none" stroke="#fff" stroke-width="4"/><circle cx="93" cy="55" r="14" fill="#f2c6a5"/><path d="M80 70q20-8 34 7l-7 18H78z" fill="#2364aa"/><circle cx="145" cy="88" r="17" fill="none" stroke="#d92d3a" stroke-width="8"/><path d="M130 77 112 66" stroke="#d92d3a" stroke-width="5" stroke-linecap="round"/></svg></div><div class="icon">🌊</div><h3>Drowning / water rescue</h3><p>Reach or throw flotation; then check breathing and start CPR if needed.</p><button class="btn secondary" onclick="showGuide('drowning')">View steps</button></div>
+<div class="card" data-key="seizure fit convulsion"><div class="med-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Cartoon illustration representing seizure safety"><circle cx="110" cy="70" r="53" fill="#e3f6ee"/><circle cx="110" cy="57" r="25" fill="#f2c6a5"/><path d="M85 52q25-37 50 0" fill="#16324f"/><path d="M68 102q5-31 42-31t42 31" fill="#2364aa"/><path d="M55 46l10-8m90 8-10-8M51 75h12m94 0h12" stroke="#d92d3a" stroke-width="4" stroke-linecap="round"/></svg></div><div class="icon">🧠</div><h3>Seizure</h3><p>Keep the person safe during a seizure.</p><button class="btn secondary" onclick="showGuide('seizure')">View steps</button></div>
+<div class="card" data-key="tourniquet bleeding limb"><div class="med-visual">🩹</div><h3>Tourniquet</h3><p>Life-threatening bleeding from an arm or leg.</p><button class="btn secondary" onclick="showGuide('tourniquet')">View steps</button></div>
+<div class="card" data-key="epipen epinephrine allergy anaphylaxis injection"><div class="med-visual">💉</div><h3>EpiPen / severe allergy</h3><p>Using a prescribed epinephrine auto-injector.</p><button class="btn secondary" onclick="showGuide('epipen')">View steps</button></div>
+<div class="card" data-key="insulin diabetes injection low sugar"><div class="med-visual">🩺</div><h3>Insulin emergency safety</h3><p>When insulin is—and is not—appropriate.</p><button class="btn secondary" onclick="showGuide('insulin')">View steps</button></div>
+<div class="card" data-key="medicine oral pills injection poisoning"><div class="med-visual">💊</div><h3>Medicine safety</h3><p>Safe decisions about oral medicine and injections.</p><button class="btn secondary" onclick="showGuide('medicine')">View steps</button></div><div class="card" data-key="animal bite dog cat bat rabies tetanus scratch"><div class="med-visual">🐾</div><h3>Animal bite or scratch</h3><p>Wash the wound and get urgent rabies/tetanus assessment.</p><button class="btn secondary" onclick="showGuide('animalbite')">View steps</button></div></div><div class="guide" id="guide" aria-live="polite"></div></div>
+<div class="card" data-key="accidental ingestion poison swallowed medicine chemical">
+<div class="med-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Illustration of a medicine bottle, warning symbol, and phone"><rect x="24" y="45" width="48" height="70" rx="9" fill="#e9f3ff" stroke="#16324f" stroke-width="3"/><rect x="34" y="30" width="28" height="20" rx="4" fill="#8db8e8" stroke="#16324f" stroke-width="3"/><path d="M35 72h26M35 83h26" stroke="#d92d3a" stroke-width="5"/><path d="M105 30l29 52h-58z" fill="#fff0c2" stroke="#d92d3a" stroke-width="3"/><path d="M105 47v17m0 8v2" stroke="#16324f" stroke-width="5" stroke-linecap="round"/><rect x="151" y="45" width="43" height="68" rx="8" fill="#dff6e8" stroke="#16324f" stroke-width="3"/><path d="M160 61q12-12 24 0v17q-12 12-24 0z" fill="#fff" stroke="#16324f" stroke-width="2"/><path d="M172 64v12m-6-6h12" stroke="#1d8a59" stroke-width="3"/></svg></div>
+<h3>Accidental ingestion</h3>
+<p><strong>Act quickly.</strong> If someone may have swallowed medicine, a chemical, poison, or an unknown substance, contact your local poison information service or emergency services promptly—even if they feel well.</p>
+<h4>What to do</h4>
+<ul>
+<li>Check responsiveness and breathing. If they collapse, have a seizure, struggle to breathe, or cannot be awakened, call emergency services immediately.</li>
+<li>Spit out any remaining substance. Gently wipe/rinse the mouth; have them spit the rinse out.</li>
+<li>Keep the product container, label, or a photo. Note the substance, estimated amount, and time swallowed.</li>
+<li>Follow poison-specialist or emergency clinician instructions. If the person is unconscious or not fully alert, give nothing by mouth.</li>
+</ul>
+<h4>What NOT to do</h4>
+<ul>
+<li><strong>Do not</strong> make them vomit or use ipecac.</li>
+<li><strong>Do not</strong> give food, drinks, milk, oil, alcohol, or home remedies unless a poison specialist or clinician specifically instructs you.</li>
+<li><strong>Do not</strong> try to neutralize it with vinegar, lemon, baking soda, or another chemical.</li>
+<li><strong>Do not</strong> give activated charcoal unless directed by a poison specialist or clinician.</li>
+<li><strong>Do not</strong> wait for symptoms or leave the person alone.</li>
+</ul>
+<p class="muted"><strong>Important:</strong> Do not put yourself at risk. If a chemical is also on the skin or in the eyes, remove contaminated clothing and rinse with running water while seeking expert help. For inhaled fumes, move to fresh air only if safe.</p>
 </div>
-<div class="guide" id="guide" aria-live="polite"></div>
+
+<div class="card" data-key="danger signs emergency warning signs">
+<h3>Danger signs — get emergency help</h3>
+<p><strong>Call your local emergency number immediately</strong> if a person has any of these warning signs:</p>
+<ul>
+<li>Not breathing normally, gasping, or severe difficulty breathing.</li>
+<li>Unresponsive, suddenly confused, or difficult to wake.</li>
+<li>Chest pain or pressure, especially with sweating, nausea, or shortness of breath.</li>
+<li>Stroke signs: face drooping, one arm weak, or sudden speech difficulty. Note when symptoms began.</li>
+<li>Seizure, especially a first, prolonged, or repeated seizure.</li>
+<li>Severe bleeding, major injury, or signs of shock such as pale/cold/clammy skin, weakness, or fainting.</li>
+<li>Severe allergic reaction with trouble breathing, throat/tongue swelling, or collapse.</li>
+<li>Sudden severe headache, or sudden loss of vision, balance, or strength.</li>
+</ul>
+<h4>While waiting for help</h4>
+<ul>
+<li>Stay with the person, keep the scene safe, and follow the dispatcher’s instructions.</li>
+<li>If unresponsive and not breathing normally, start CPR and use an AED if available; follow dispatcher coaching.</li>
+<li>Do not give food, drink, or medication to someone who is drowsy or unconscious.</li>
+</ul>
+<p class="muted"><strong>Remember:</strong> This guide cannot diagnose an emergency. If you are unsure and the person seems seriously unwell, seek emergency help.</p>
+</div>
+
+<div class="card" data-key="baby infant danger signs emergency">
+<div class="med-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Cartoon infant with caregiver and emergency warning sign"><circle cx="77" cy="54" r="27" fill="#f2c6a5" stroke="#16324f" stroke-width="3"/><path d="M54 48q8-32 43-17q12 8 9 23q-17-12-52-6" fill="#7b5b45"/><path d="M47 92q30-26 60 0l12 30H35z" fill="#8db8e8" stroke="#16324f" stroke-width="3"/><path d="M149 26l34 60h-68z" fill="#fff0c2" stroke="#d92d3a" stroke-width="3"/><path d="M149 43v20m0 9v2" stroke="#16324f" stroke-width="5" stroke-linecap="round"/><path d="M128 103q21-18 42 0v20h-42z" fill="#dff6e8" stroke="#16324f" stroke-width="3"/></svg></div>
+<h3>Baby danger signs — get emergency help</h3>
+<p><strong>For a baby under 1 year:</strong> Call emergency services immediately if you notice any of these warning signs.</p>
+<ul>
+<li>Not breathing, gasping, pauses in breathing, or severe difficulty breathing; grunting, ribs pulling in, or blue/gray lips or face.</li>
+<li>Unresponsive, unusually floppy, very hard to wake, or not responding normally.</li>
+<li>Seizure, especially a first seizure, prolonged seizure, or repeated seizures.</li>
+<li>Choking or unable to cry, cough, or breathe.</li>
+<li>Sudden pale, blue, gray, or mottled skin; very cold and weak, or signs of shock.</li>
+<li>Severe bleeding, major injury, or a serious burn.</li>
+</ul>
+<h4>Urgent medical assessment</h4>
+<ul>
+<li>Baby younger than 3 months with a temperature of 38°C (100.4°F) or higher.</li>
+<li>Unable to feed, repeated vomiting, markedly fewer wet diapers, or other signs of dehydration.</li>
+<li>Unusual weak/high-pitched cry, bulging soft spot when calm and upright, or rapidly worsening condition.</li>
+</ul>
+<p><strong>While waiting:</strong> Stay with the baby, keep them comfortably warm, and follow the emergency dispatcher’s instructions. If they are unresponsive and not breathing normally, start infant CPR if you know how or follow dispatcher coaching. Do not shake the baby or give food, drink, or medicine to an unresponsive baby.</p>
+<p class="muted">This is not a diagnosis. When concerned, seek urgent professional medical advice; babies can become seriously ill quickly.</p>
+</div>
+
+<div class="card" data-key="baby infant feeding breathing apnea inconsolable crying mottling vomiting aspiration">
+<div class="med-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Animated-style infant care illustration with breathing and warning symbols"><circle cx="74" cy="54" r="27" fill="#f2c6a5" stroke="#16324f" stroke-width="3"/><path d="M50 47q10-30 45-16q12 8 10 24q-17-12-55-8" fill="#7b5b45"/><path d="M45 92q30-26 60 0l12 30H33z" fill="#8db8e8" stroke="#16324f" stroke-width="3"/><path d="M151 25l34 60h-68z" fill="#fff0c2" stroke="#d92d3a" stroke-width="3"/><path d="M151 43v20m0 9v2" stroke="#16324f" stroke-width="5" stroke-linecap="round"/><circle cx="151" cy="107" r="19" fill="#dff6e8" stroke="#16324f" stroke-width="3"/><path d="M140 107h22m-11-11v22" stroke="#1d8a59" stroke-width="4"/></svg></div>
+<h3>Baby emergency signs: feeding, breathing, crying, color & vomiting</h3>
+<p><strong>Call emergency services now</strong> if a baby stops breathing, is gasping or struggling to breathe, turns blue/gray, becomes unresponsive or very floppy, or may have inhaled vomit and is having breathing trouble. Put the phone on speaker and follow dispatcher instructions.</p>
+<h4>What to do</h4>
+<ul>
+<li><strong>Not feeding:</strong> If baby is alert and breathing normally, do not force-feed. Seek urgent medical advice if refusing feeds, especially with fewer wet diapers, fever, repeated vomiting, unusual sleepiness, or worsening condition. A baby under 3 months with a temperature of 38°C / 100.4°F or higher needs urgent medical assessment.</li>
+<li><strong>Stops breathing / not breathing normally:</strong> Call emergency services. If unresponsive and not breathing normally, begin infant CPR immediately if trained, or follow dispatcher coaching. Use an AED as soon as available, following its prompts; do not delay CPR to search for one.</li>
+<li><strong>Inconsolable crying:</strong> Check breathing, color, temperature, injury, and whether something is constricting fingers/toes. If crying is sudden, unusual, persistent, or accompanied by fever, vomiting, lethargy, breathing difficulty, or color change, seek urgent medical care. Never shake a baby.</li>
+<li><strong>Pale, blue/gray, or mottled (blotchy) color:</strong> If sudden, persistent, or paired with breathing problems, weakness, cold skin, or reduced responsiveness, call emergency services. Keep baby comfortably warm and monitor breathing.</li>
+<li><strong>Vomiting / possible aspiration:</strong> If baby is awake and breathing, hold them upright or turn their head to the side and gently clear visible vomit from the mouth. Do not sweep blindly inside the mouth. If unresponsive but breathing normally, place on their side if safe and monitor breathing. If not breathing normally, start CPR and follow dispatcher instructions.</li>
+</ul>
+<h4>What NOT to do</h4>
+<ul>
+<li>Do not force milk, water, food, or medicine into a distressed, sleepy, choking, or breathing-impaired baby.</li>
+<li>Do not put fingers or objects into the mouth unless you can clearly see and safely remove an obstruction.</li>
+<li>Do not hang the baby upside down, shake them, slap their back for ordinary vomiting, or try to make them vomit.</li>
+<li>Do not leave the baby alone, assume mottling or color change is harmless, or delay emergency help to take photos/videos.</li>
+<li>Do not give infant CPR breaths or chest compressions based on this text alone if unsure; call emergency services and follow live dispatcher guidance.</li>
+</ul>
+<p class="muted"><strong>Reminder:</strong> This guide cannot assess an infant remotely. If you are worried or symptoms are worsening, get professional medical help promptly.</p>
+</div>
+
+<div class="card" data-key="animal bites snake spider scorpion dog cat canine rabies">
+<div class="med-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Illustration with animal paw, snake curve, and medical warning"><circle cx="64" cy="70" r="48" fill="#e3f6ee" stroke="#16324f" stroke-width="3"/><circle cx="48" cy="48" r="12" fill="#8db8e8"/><circle cx="75" cy="42" r="12" fill="#8db8e8"/><circle cx="89" cy="64" r="12" fill="#8db8e8"/><ellipse cx="65" cy="80" rx="23" ry="18" fill="#8db8e8"/><path d="M133 105q-30-18 0-35t0-35q-20-17 0-25" fill="none" stroke="#1d8a59" stroke-width="8" stroke-linecap="round"/><path d="M164 28l32 57h-64z" fill="#fff0c2" stroke="#d92d3a" stroke-width="3"/><path d="M164 45v18m0 8v2" stroke="#16324f" stroke-width="5" stroke-linecap="round"/></svg></div>
+<h3>Animal bites & stings</h3>
+<p>For any bite or sting, move away from the animal safely. Call emergency services for trouble breathing, facial/throat swelling, collapse, severe bleeding, seizure, or rapidly worsening symptoms. Wash wounds and get prompt medical assessment—rabies and tetanus prevention may be time-sensitive.</p>
+<h4>Dog or cat bite — ask these questions</h4>
+<ul>
+<li><strong>Was it a domestic/pet animal or a stray/unknown animal?</strong> Can the animal and its owner be safely identified?</li>
+<li>Is the animal’s rabies vaccination known and current? Can a public-health or veterinary authority arrange safe observation?</li>
+<li>When and where did the bite happen? Did it break the skin, and where on the body?</li>
+<li>Do not try to catch or handle a stray or aggressive animal. Report it to local animal-control/public-health authorities.</li>
+</ul>
+<p>Wash a bite or scratch thoroughly with soap and running water for about 15 minutes, if possible. Apply pressure for bleeding and cover with a clean dressing. Seek medical care promptly for rabies-risk assessment, infection prevention, and tetanus advice. Do not wait for symptoms or for the animal to be found before seeking advice.</p>
+<h4>Snake bite</h4>
+<ul>
+<li>Move away from the snake; do not try to catch, kill, or handle it. Note its appearance from a safe distance only if easy.</li>
+<li>Keep the person calm and still; immobilize the bitten limb in a comfortable position and remove rings or tight items.</li>
+<li>Call emergency services and get urgent hospital care for possible antivenom assessment.</li>
+<li><strong>Do not</strong> cut, suck, squeeze, ice, burn, or apply a tight tourniquet or pressure bandage unless specifically directed by local expert protocols.</li>
+</ul>
+<h4>Spider or scorpion sting</h4>
+<ul>
+<li>Move away from the creature. Wash the area with soap and water; use a cool pack wrapped in cloth for brief periods.</li>
+<li>Seek urgent medical or poison-service advice, especially for children, severe pain, spreading symptoms, sweating, vomiting, muscle cramps, abnormal movements, or a suspected dangerous species.</li>
+<li>Call emergency services for breathing difficulty, collapse, seizures, severe whole-body symptoms, or facial/throat swelling.</li>
+<li>Do not cut or suck the site, apply a tourniquet, or use unverified remedies. Do not delay care to capture the creature.</li>
+</ul>
+<h4>Management & follow-up advice</h4>
+<ul>
+<li><strong>Dog/cat bites:</strong> Irrigate and clean thoroughly, control bleeding with direct pressure, and cover loosely. A clinician should assess rabies exposure, tetanus status, wound depth, and whether antibiotics or wound closure are appropriate. Bites to the face, hand, joints, genitals, deep punctures, or wounds in immunocompromised people need especially prompt assessment. If the animal is a pet, obtain owner/vaccination details without delaying care; public-health authorities advise on observation and rabies prevention.</li>
+<li><strong>Snake bites:</strong> Arrange urgent transport to a hospital; keep the person still and the limb supported. Do not let them walk if avoidable. Mark swelling edge and time if this can be done without delaying transport. Hospital teams determine monitoring and antivenom treatment. Do not use tight pressure wraps unless local emergency experts specifically direct them.</li>
+<li><strong>Spider bites:</strong> Clean gently, use a cool cloth or wrapped cool pack for comfort, and monitor symptoms. Seek medical advice for worsening pain, spreading redness, blistering, fever, muscle cramps, or uncertain/dangerous species; emergency care for systemic symptoms or breathing problems.</li>
+<li><strong>Scorpion stings:</strong> Wash with soap and water; apply a cool pack wrapped in cloth intermittently. Keep the person calm and seek poison-service/medical advice, particularly for children. Emergency assessment is needed for trouble breathing or swallowing, drooling, unusual eye movements, muscle twitching, severe agitation, or widespread symptoms. Do not cut, suck, or apply a tourniquet.</li>
+</ul>
+<p class="muted"><strong>Aftercare:</strong> Watch for increasing redness, warmth, swelling, pus, fever, or worsening pain and seek medical care if these occur. Follow clinician/public-health advice on rabies vaccination, rabies immunoglobulin, tetanus boosters, and any prescribed antibiotics. Local protocols and species risks vary.</p><p class="muted"><strong>Do not:</strong> apply chemicals or traditional remedies, close a deep bite with glue, or ignore puncture wounds. Follow local emergency and public-health guidance.</p>
+</div>
+</section>
+
+
+<section id="bandages"><div class="wrap">
+<div class="med-visual section-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Cartoon first aid bandage kit"><circle cx="110" cy="70" r="53" fill="#e3f6ee"/><rect x="57" y="48" width="106" height="65" rx="12" fill="#fff" stroke="#2364aa" stroke-width="3"/><rect x="88" y="35" width="44" height="20" rx="7" fill="#d92d3a"/><path d="M110 63v35m-17-17h34" stroke="#d92d3a" stroke-width="7" stroke-linecap="round"/></svg></div>
+<span class="eyebrow">Illustrated skills</span><h2>How to apply a bandage</h2>
+<p class="muted">Simple visual steps for a head, arm, leg, and foot. These are general first-aid demonstrations—not a substitute for training or medical care.</p>
+<div class="grid">
+<article class="card"><h3>Head bandage</h3><div class="med-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Cartoon head bandage illustration"><circle cx="110" cy="66" r="43" fill="#f2c6a5" stroke="#16324f" stroke-width="3"/><path d="M67 64q43-52 86 0" fill="#fff" stroke="#2364aa" stroke-width="14"/><path d="M80 63q30 12 60 0" stroke="#d92d3a" stroke-width="4" fill="none"/><circle cx="96" cy="77" r="3" fill="#16324f"/><circle cx="124" cy="77" r="3" fill="#16324f"/><path d="M100 91q10 7 20 0" stroke="#16324f" stroke-width="3" fill="none" stroke-linecap="round"/></svg></div><ol><li>For a small scalp wound, place sterile gauze over it.</li><li>Wrap a roller bandage around the head to hold the gauze, keeping it away from the eyes and ears.</li><li>Secure gently; check that breathing and circulation remain normal.</li></ol><p class="small muted">Suspected skull injury, deep wound, heavy bleeding, or confusion: call emergency services. Do not press directly on a suspected skull fracture or embedded object.</p></article>
+<article class="card"><h3>Arm bandage</h3><div class="med-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Cartoon arm bandage illustration"><path d="M70 110L90 38q8-16 22-8t5 25l-12 35 38 8q13 4 9 17t-18 8H85q-20-2-15-13z" fill="#f2c6a5" stroke="#16324f" stroke-width="3"/><path d="M83 78l45 12m-50 1 45 12m-43 2 37 10" stroke="#fff" stroke-width="12" stroke-linecap="round"/><path d="M83 78l45 12m-50 1 45 12m-43 2 37 10" stroke="#2364aa" stroke-width="3" stroke-linecap="round"/></svg></div><ol><li>Cover the wound with sterile dressing.</li><li>Wrap from the area below the wound toward the body, overlapping each turn by about half the bandage width.</li><li>Secure without pulling too tight; leave fingers visible and check warmth, color, feeling, and movement.</li></ol><p class="small muted">If bleeding is severe, use firm direct pressure and seek emergency help. A bandage should not cause numbness, tingling, or blue/cold fingers.</p></article>
+<article class="card"><h3>Leg bandage</h3><div class="med-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Cartoon leg bandage illustration"><path d="M82 25h48l-8 70 25 22q8 8-2 12H87q-14-2-8-14l10-20z" fill="#f2c6a5" stroke="#16324f" stroke-width="3"/><path d="M83 63h42m-43 12h41m-42 12h40" stroke="#fff" stroke-width="13" stroke-linecap="round"/><path d="M83 63h42m-43 12h41m-42 12h40" stroke="#2364aa" stroke-width="3" stroke-linecap="round"/></svg></div><ol><li>Cover the injury with a sterile pad.</li><li>Wrap evenly around the leg, overlapping turns and supporting the dressing.</li><li>Secure comfortably and check toes for normal color, warmth, sensation, and movement.</li></ol><p class="small muted">Do not wrap tightly over a suspected fracture or deformity. Keep the limb still and get medical help.</p></article>
+<article class="card"><h3>Foot bandage</h3><div class="med-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Cartoon foot bandage illustration"><path d="M89 30q20 2 20 30l10 30q8 12 35 15 15 3 9 14H76q-13-5-4-18l9-28z" fill="#f2c6a5" stroke="#16324f" stroke-width="3"/><path d="M84 70l50 18m-54-5 48 18m-45-5 40 15" stroke="#fff" stroke-width="13" stroke-linecap="round"/><path d="M84 70l50 18m-54-5 48 18m-45-5 40 15" stroke="#2364aa" stroke-width="3" stroke-linecap="round"/></svg></div><ol><li>Place a sterile dressing over the wound.</li><li>Wrap around the foot and ankle in overlapping turns, keeping the toes uncovered.</li><li>Secure gently. Check toes for color, warmth, feeling, and movement; loosen if these worsen.</li></ol><p class="small muted">For severe pain, deformity, or inability to bear weight, keep the foot still and seek urgent care.</p></article>
+</div>
+<div class="alert"><strong>Bandage safety:</strong> If bleeding is life-threatening, call emergency services and apply firm direct pressure. Do not remove a soaked first dressing—add more on top. A bandage must not cut off circulation.</div>
 </div></section>
-<section id="assistant"><div class="wrap"><span class="eyebrow">Guidance, not diagnosis</span><h2>First-aid topic helper</h2><p>Describe the situation in a few words to find a relevant guide. This simple demo does not provide diagnosis or personalized medical advice.</p>
-<div class="chat-box"><label for="question">What is happening?</label><textarea id="question" placeholder="Example: Someone has a burn on their hand…"></textarea><button class="btn" onclick="findHelp()">Find relevant guidance</button><div class="response" id="response" aria-live="polite"></div></div></div></section>
-</main>
-<footer><div class="wrap"><strong>✚ MediRescue</strong><p>Educational first-aid information. Not a replacement for emergency services, medical assessment, or professional advice.</p><p class="small">For urgent or life-threatening situations, call your local emergency number immediately. Follow instructions from qualified emergency responders.</p></div></footer>
+<section id="assistant"><div class="wrap"><div class="med-visual section-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Cartoon medical helper"><circle cx="110" cy="70" r="53" fill="#e8eaff"/><rect x="64" y="35" width="92" height="70" rx="18" fill="#fff" stroke="#2364aa" stroke-width="3"/><path d="M83 61h54M83 76h37" stroke="#9db7d4" stroke-width="5" stroke-linecap="round"/><circle cx="153" cy="92" r="23" fill="#d92d3a"/><path d="M153 80v24m-12-12h24" stroke="#fff" stroke-width="6" stroke-linecap="round"/></svg></div><span class="eyebrow">First-aid topic helper</span><h2>Medical help assistant</h2><div class="box"><p class="muted">Describe the issue to find a relevant guide. This starter assistant uses topic matching; it is not an AI clinician and cannot assess an emergency.</p><label for="question"><strong>What is happening?</strong></label><textarea id="question" rows="3" placeholder="Example: Someone has a burn on their hand…"></textarea><button class="btn" onclick="getHelp()">Find guidance</button><div class="result" id="answer" aria-live="polite"></div></div></div></section>
+
+<section id="contacts"><div class="wrap"><div class="med-visual section-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Cartoon emergency response"><circle cx="110" cy="70" r="53" fill="#fff0d9"/><rect x="52" y="58" width="116" height="48" rx="12" fill="#fff" stroke="#2364aa" stroke-width="3"/><rect x="68" y="45" width="84" height="20" rx="8" fill="#d92d3a"/><path d="M110 68v29m-14-14h28" stroke="#d92d3a" stroke-width="7" stroke-linecap="round"/><circle cx="77" cy="108" r="11" fill="#16324f"/><circle cx="145" cy="108" r="11" fill="#16324f"/></svg></div><span class="eyebrow">Get help quickly</span><h2>Emergency contacts</h2><p class="muted">Emergency phone numbers can vary by location and service. Confirm these with official local sources before publishing or relying on them.</p><div class="grid">
+<div class="card contact"><div class="icon">🚑</div><h3>Ambulance / medical emergency</h3><p>Use your area's official emergency ambulance service.</p><a href="https://www.google.com/search?q=official+ambulance+emergency+number+Pakistan" target="_blank" rel="noopener">Find official number ↗</a></div>
+<div class="card contact"><div class="icon">🚓</div><h3>Police</h3><p>For immediate safety threats, contact local police.</p><a href="https://www.google.com/search?q=official+police+emergency+number+Pakistan" target="_blank" rel="noopener">Find official number ↗</a></div>
+<div class="card contact"><div class="icon">☎️</div><h3>Local emergency services</h3><p>Look up the current emergency contact for your city or region.</p><a href="https://www.google.com/search?q=official+emergency+services+Pakistan" target="_blank" rel="noopener">Find local contacts ↗</a></div>
+</div><p class="small muted">These links open a web search and are not an emergency call. For urgent help, use a known local emergency number directly.</p></div></section>
+
+<section id="locator"><div class="wrap"><div class="med-visual section-visual"><svg viewBox="0 0 220 140" role="img" aria-label="Cartoon hospital building"><circle cx="110" cy="70" r="53" fill="#e3f6ee"/><rect x="63" y="40" width="94" height="78" rx="8" fill="#fff" stroke="#2364aa" stroke-width="3"/><rect x="96" y="82" width="28" height="36" fill="#dcecff"/><path d="M110 48v24m-12-12h24" stroke="#d92d3a" stroke-width="7" stroke-linecap="round"/><rect x="75" y="78" width="12" height="14" rx="2" fill="#dcecff"/><rect x="133" y="78" width="12" height="14" rx="2" fill="#dcecff"/></svg></div><span class="eyebrow">Find nearby care</span><h2>Hospital locator</h2><div class="box"><p class="muted">Open a map search for hospitals near you. Location access is handled by the map service; MediRescue does not store your location.</p><button class="btn" onclick="findHospitals()">Find hospitals near me</button> <a class="btn secondary" href="https://www.google.com/maps/search/hospitals+near+me" target="_blank" rel="noopener">Search on Google Maps</a><p class="small muted">If this is life-threatening, call emergency services instead of traveling or searching online.</p></div></div></section>
+</main><footer><div class="wrap"><strong>✚ MediRescue</strong><p>General first-aid education only. Not a diagnosis or substitute for emergency care or professional medical advice.</p><p class="small">For life-threatening emergencies, call local emergency services immediately and follow their instructions.</p></div></footer>
 <script>
-const guides={
-cpr:{title:"CPR / suspected cardiac arrest",do:["Check that the scene is safe. Tap the person and shout to check responsiveness.","If unresponsive and not breathing normally (or only gasping), call local emergency services and ask someone to get an AED, if available.","Start chest compressions in the center of the chest: push hard and fast, about 100–120 per minute, allowing the chest to recoil. Follow dispatcher instructions.","Use an AED as soon as it is available and follow its voice prompts. Continue until help takes over or the person shows clear signs of life."],dont:["Do not delay emergency calling or CPR to search online. Do not give food, drink, or medication."]}
-,choking:{title:"Choking",do:["If the person can cough forcefully or speak, encourage them to keep coughing and watch closely.","If they cannot speak, breathe, or cough effectively, call emergency services or have someone call.","For an adult or child over 1 year with severe choking, give up to 5 back blows, then up to 5 abdominal thrusts; repeat as needed. Follow dispatcher guidance.","If the person becomes unresponsive, lower them safely and begin CPR; check the mouth for a visible object when opening the airway."],dont:["Do not perform blind finger sweeps. Do not give food or water. Do not use abdominal thrusts on an infant under 1 year; seek infant-specific trained guidance."]}
-,bleeding:{title:"Severe bleeding",do:["Call emergency services for heavy, spurting, or uncontrolled bleeding.","Apply firm, continuous direct pressure to the wound with clean cloth or gauze.","If blood soaks through, add more material without removing the first layer; keep pressure on.","If trained and appropriate for a life-threatening limb bleed, use a commercial tourniquet and note the time. Keep the person warm and still."],dont:["Do not remove embedded objects; apply pressure around them. Do not repeatedly lift the dressing to check."]}
-,burns:{title:"Burns",do:["Stop the burning process and move away from the source if safe.","Cool the burn under cool running water for 20 minutes as soon as possible.","Remove jewelry or loose clothing near the burn, but do not pull away anything stuck to skin.","Cover loosely with a clean, non-fluffy dressing or cling film laid over the area. Seek medical help for serious, large, deep, facial, hand, genital, or chemical/electrical burns."],dont:["Do not use ice, butter, oils, toothpaste, or creams. Do not burst blisters or peel stuck clothing."]}
-,fracture:{title:"Suspected fracture",do:["Keep the person and injured area still; support it in the position found.","Call emergency services for severe injury, deformity, open fracture, numbness, or major pain.","If there is a wound, cover it with a clean dressing. Apply pressure around—not directly on—an exposed bone.","Arrange medical assessment. Check for changes in sensation, color, or warmth while waiting."],dont:["Do not try to straighten the bone or push it back in. Do not make the person move or bear weight on the injury."]}
-,seizure:{title:"Seizure",do:["Protect the person from nearby hazards; cushion their head and loosen tight clothing around the neck.","Time the seizure. When movements stop, check breathing and place them on their side if breathing normally.","Stay with them and speak calmly as they recover. Call emergency services if it lasts 5 minutes or longer, repeats, is their first seizure, they are injured, pregnant, or have trouble breathing."],dont:["Do not restrain them. Do not put anything in their mouth or give food, drink, or medicine until fully alert."]}
-};
-function openGuide(key){const g=guides[key],el=document.getElementById("guide");el.innerHTML=`<h3>${g.title}</h3><span class="pill">What to do</span><ul>${g.do.map(x=>`<li>${x}</li>`).join("")}</ul><div class="dont"><strong>What not to do</strong><ul>${g.dont.map(x=>`<li>${x}</li>`).join("")}</ul></div><p><strong>Important:</strong> Call your local emergency number when the situation is urgent. Follow professional instructions.</p>`;el.classList.add("show");el.scrollIntoView({behavior:"smooth",block:"nearest"});}
-document.getElementById("search").addEventListener("input",e=>{const q=e.target.value.toLowerCase();document.querySelectorAll("#cards .card").forEach(c=>c.style.display=c.dataset.key.includes(q)||c.innerText.toLowerCase().includes(q)?"":"none");});
-function findHelp(){const q=document.getElementById("question").value.toLowerCase(),r=document.getElementById("response");let key=q.includes("burn")?"burns":q.includes("chok")?"choking":q.includes("bleed")||q.includes("blood")?"bleeding":q.includes("fract")||q.includes("broken bone")?"fracture":q.includes("seiz")||q.includes("fit")?"seizure":q.includes("unconscious")||q.includes("not breathing")||q.includes("cpr")?"cpr":null;r.classList.add("show");r.innerHTML=key?`<strong>Possible relevant guide: ${guides[key].title}</strong><p>Open the guide above for general first-aid steps. This helper cannot assess an emergency. If there is immediate danger, call local emergency services now.</p><button class="btn secondary" onclick="openGuide('${key}')">Open guide</button>`:"<strong>I couldn't match that to a guide.</strong><p>If this may be an emergency, call your local emergency number now. You can browse the first-aid guides above or seek help from a qualified professional."; }
-</script>
-</body></html>
+const G={
+cpr:{name:"CPR + AED / suspected cardiac arrest",do:["Make sure the scene is safe. Tap the person and shout. If unresponsive and not breathing normally (or only gasping), call emergency services, put the phone on speaker, and send someone for an AED.","For an adult, place the heel of one hand in the center of the chest (on the lower half of the breastbone); place your other hand on top. Keep arms straight and shoulders over your hands.","Push hard and fast: 100–120 compressions per minute, about 5–6 cm (2–2.4 inches) deep. Let the chest fully recoil after every push; avoid leaning on it. Minimize pauses.","When the AED arrives, turn it on and follow its spoken/visual prompts. Expose and dry the chest if needed, then attach pads exactly as pictured on the pads. Keep CPR going while another rescuer applies pads if possible.","When the AED says analyze or shock, loudly say “CLEAR,” visually check that nobody is touching the person, and ensure no one touches them during analysis or shock. Deliver a shock only when prompted. Immediately resume CPR after the shock—or if no shock is advised—and follow prompts until help takes over or the person shows clear signs of life. If the chest is wet, move to a dry area if safe and dry the chest before pads; remove medication patches with gloves and wipe the area; do not place pads directly over a pacemaker bump or medication patch. Keep oxygen flowing away from the chest during shock if present."],dont:["Do not delay CPR or AED use. Do not touch the person during AED analysis or shock. Do not stop compressions just because you hear or feel a rib crack; continue effective CPR and follow the dispatcher/AED prompts."]},
+choking:{name:"Choking — when to start and stop first aid / CPR",do:["START first aid when someone suddenly cannot speak, breathe, or cough effectively; may clutch their throat. If they can cough forcefully or speak, encourage coughing and monitor—do not give thrusts.","For a conscious adult or child over 1 year with severe choking: call emergency services or send someone; give 5 firm back blows between the shoulder blades, then 5 abdominal thrusts. Repeat cycles until the object comes out or they become unresponsive. For a pregnant person or one whose abdomen cannot be encircled, use chest thrusts instead.","IF THEY BECOME UNRESPONSIVE: carefully lower them to the floor, call emergency services, ask for an AED, and start CPR with chest compressions. Each time you open the airway to give breaths, look for an object and remove it only if clearly visible. Follow dispatcher instructions.","STOP choking thrusts when the obstruction clears and the person can breathe/cough/speak, or when they become unresponsive (then switch to CPR). Stop CPR only when they show clear signs of life and breathe normally, trained help takes over, the scene becomes unsafe, or you are physically unable to continue. If breathing normally but still needs monitoring, stay with them and get medical assessment."],dont:["Do not perform blind finger sweeps. Do not give food or water. Never use abdominal thrusts on an infant under 1 year; infants need age-specific back blows and chest thrusts. After thrusts, arrange medical evaluation, especially if pain or symptoms persist."]},
+electrocution:{name:"Electric shock / electrocution",do:["MAKE THE SCENE SAFE FIRST. Do not touch the person while they may still be connected to electricity. Switch off power at the breaker/unplug only if you can do so safely. For high-voltage wires or downed lines, stay far away and call emergency services/utility responders; wait for them to confirm power is off.","Once the power is confirmed off and the scene is safe, check responsiveness and normal breathing. Call emergency services; send someone for an AED. If you cannot safely switch off the electricity, keep away and wait for trained responders—do not attempt a rescue by touching or pulling the person.","If unresponsive and not breathing normally or only gasping, start CPR immediately: adult chest compressions in the center of the chest, 100–120/min, 5–6 cm deep, allowing full recoil. Give rescue breaths if trained and able; use an AED as soon as available and follow its prompts.","If conscious and breathing, keep them still and warm, monitor breathing, and seek urgent medical assessment. Electrical injuries can cause hidden internal injury or heart rhythm problems even with small skin marks. Cover burns loosely with a clean dry dressing."],dont:["Never touch the person, wire, or nearby metal while electricity may still be live. Do not use a stick, broom, wood, or any other object to push or pull them away: objects may be wet, contaminated, or conduct electricity, and high-voltage current can arc. Do not approach downed power lines; keep far away and call emergency services and the utility. Do not use water or delay medical assessment even if the person seems okay."]},
+bleeding:{name:"Severe bleeding",do:["Call emergency services for heavy, spurting, or uncontrolled bleeding.","Apply firm, continuous direct pressure with clean cloth or gauze.","If it soaks through, add more material without removing the first layer. Keep pressure on and keep the person warm."],dont:["Do not remove embedded objects; press around them. Do not repeatedly lift the dressing to check."]},
+burn:{name:"Burns and fire safety",do:["If clothing catches fire: STOP, DROP, and ROLL; cover the face if possible. A nearby person can help smother flames with a fire blanket or heavy fabric, avoiding the face, then call emergency services.","For a building fire: alert others, leave immediately by the safest route, stay low under smoke, close doors behind you, and use stairs—not elevators. Once outside, stay out and call the fire service. Do not re-enter for belongings.","Use a fire extinguisher only for a small, contained fire, with a clear exit behind you, and only if you know how. PASS: Pull the pin; Aim at the base; Squeeze the handle; Sweep side to side. If it does not go out quickly, evacuate.","A fire blanket is for a small, contained fire (such as a pan fire) or to smother flames on a person if safe. Turn off heat only if safe; gently place blanket between you and flames and cover the fire without throwing it. Leave it in place until cool; do not lift to check.","After a burn, cool under cool running water for 20 minutes. Remove nearby jewelry or loose clothing, but not anything stuck to skin. Cover loosely with a clean dressing and seek urgent care for serious, large, deep, face/hand/genital, chemical, or electrical burns."],dont:["Do not fight spreading fires, use water on a grease or electrical fire, or let an extinguisher block your escape. Do not use ice, butter, oils, or toothpaste on burns."]},
+carcrash:{name:"Car accident — scene safety and escape",do:["Stop in a safe place if possible, switch on hazard lights, call emergency services, and give the location and number of injured people. Do not enter traffic or approach fire, smoke, leaking fuel, or downed power lines.","If safe, turn off the vehicle. Check people for responsiveness and normal breathing. Do not move an injured person unless there is immediate danger (fire, smoke, traffic) or needed for CPR/airway. Assume neck or spine injury after a serious crash; support the head in the position found.","If trapped in a vehicle with immediate danger, call emergency services and tell them you are trapped. If you must escape through glass, use a purpose-built car escape tool with a seat-belt cutter and window breaker. Break a side window, not the windshield, if the tool and glass type allow; aim for a corner/edge and protect your face and hands.","Some side windows are laminated and may not shatter with a standard breaker; choose another accessible window or wait for rescuers if possible. Once out, move well away from traffic and the vehicle, and do not return.","Give first aid only when safe: control severe bleeding with firm pressure; if someone is unresponsive and not breathing normally, begin CPR and use an AED if available. Follow the emergency dispatcher."],dont:["Do not rely on removable seat headrest posts to break glass: they are not designed for this and may not work. Do not break glass unless escape is necessary; avoid the windshield, which is laminated. Do not pull an injured person out unless immediate danger or lifesaving care requires it."]},
+fracture:{name:"Suspected fracture — leg, spine, or neck",do:["Call emergency services for suspected spine/neck injury, a badly deformed or open fracture, severe pain, numbness/tingling, weakness, or a cold/pale limb. Keep the person still and reassure them.","LEG: Do not let them stand or walk. Support the leg in the position found using folded blankets, clothing, or cushions around it. Do not pull, straighten, or try to align it. Check toes for color, warmth, and sensation without moving the leg. If trained and emergency help is delayed, follow dispatcher guidance before applying a splint; secure it above and below the injury without tightening or pressing on the injury.","SPINE / NECK: Assume a spine injury after a fall, crash, dive, or major blow, especially with neck/back pain, tingling, weakness, or loss of sensation. Tell them not to move. Keep the head and neck aligned in the position found; gently support the sides of the head with your hands or soft rolled towels, without forcing it straight or blocking the airway. Do not sit them up, twist, or move them unless there is immediate danger.","If they vomit or the airway is threatened, prioritize breathing. Call the dispatcher for help to roll them carefully as a unit, keeping head, neck, and torso aligned if possible. If they are unresponsive and not breathing normally, begin CPR; airway and lifesaving care take priority over spinal precautions.","Cover open wounds with a clean dressing; control bleeding with direct pressure around (not on) any protruding bone. Keep them warm and monitor breathing until help arrives."],dont:["Do not straighten a limb or neck, push bone back in, massage, or test movement. Do not move a suspected spine/neck injury unless needed for immediate safety, airway, or CPR. Do not give food or drink."]},
+seizure:{name:"Seizure",do:["Protect from hazards and cushion the head. Time the seizure.","When movements stop, check breathing. If breathing normally, place them on their side (recovery position) and stay with them. Gently turn the whole body onto the side; do not force or twist the head.","Call emergency services if it lasts 5 minutes or more, repeats, is their first seizure, they are injured, pregnant, or have trouble breathing."],dont:["Do not restrain them or put anything in their mouth. Do not give food, drink, pills, or injections during a seizure or until fully alert, unless an emergency clinician directs otherwise."]},
+tourniquet:{name:"Life-threatening limb bleeding / tourniquet",do:["Call emergency services. For life-threatening bleeding from an arm or leg, apply firm direct pressure immediately while a tourniquet is prepared if available.","Place a commercial tourniquet on the limb, above the wound and not over a joint. Follow the device instructions; tighten until bleeding stops. A second tourniquet may be needed above the first if bleeding continues.","Note the application time and tell emergency responders. Keep the tourniquet visible and get urgent medical care."],dont:["Do not place it over a joint, cover it, loosen it, or remove it yourself. Do not use a narrow cord or wire. If trained and equipped, follow your training and dispatcher guidance."]},
+epipen:{name:"Epinephrine auto-injector (EpiPen) / severe allergy",do:["Suspect anaphylaxis when a severe allergic reaction causes breathing trouble, throat/tongue swelling, collapse, or symptoms in more than one body system. Call emergency services immediately.","Use the person’s prescribed epinephrine auto-injector promptly, following the device’s label and instructions. Inject into the outer mid-thigh; it may be given through clothing if the device instructions allow. Hold for the time specified on that device.","If symptoms persist and a second prescribed auto-injector is available, follow the emergency plan/dispatcher advice about a repeat dose, commonly after 5–15 minutes. Keep the person lying down; if breathing is difficult, allow a supported sitting position. Do not let them stand or walk."],dont:["Do not inject into the hands, feet, buttocks, or a vein. Do not delay emergency services. Do not substitute antihistamines for epinephrine in anaphylaxis."]},
+insulin:{name:"Insulin / diabetes emergency safety",do:["Insulin is only for a person who has been prescribed it and according to their own diabetes care plan. If unsure, call emergency services or their clinician before giving an injection.","If the person is awake and able to swallow and low blood sugar is suspected, give fast-acting sugar (such as glucose tablets or juice) according to their plan; recheck if possible. If unconscious, having a seizure, or unable to swallow, give nothing by mouth and call emergency services. Use prescribed glucagon if available and you are trained or follow its instructions.","For very high blood sugar with vomiting, deep/rapid breathing, confusion, or severe illness, seek emergency care. Do not guess an insulin dose."],dont:["Do not give insulin as a general emergency injection or give extra insulin without their prescribed plan. Never give food, drink, or oral medicine to someone unable to swallow safely."]},
+medicine:{name:"Emergency medicine and swallowing safety",do:["Give only medication prescribed for that person and emergency, following their written plan or emergency dispatcher/clinician instructions.","If they are unconscious, having a seizure, very drowsy, or cannot swallow normally, call emergency services and give nothing by mouth.","For a conscious person with a suspected overdose or poisoning, call emergency services or the local poison service. Keep the package and tell responders what, how much, and when it was taken."],dont:["Do not force pills, liquids, food, or drink into someone who cannot swallow safely. Do not induce vomiting or give an injection unless it is prescribed for that emergency and you know how to use it."],animalbite:{name:"Animal bite / scratch / rabies exposure categories",do:["Immediately wash and flush the wound with soap and running water for about 15 minutes. If available, use a suitable antiseptic after washing. Do not delay washing while looking for care.","Get prompt medical/rabies clinic assessment after any possible exposure. The clinician will classify the exposure, consider rabies vaccine (PEP), and decide whether rabies immunoglobulin (RIG) is needed. Start PEP promptly when indicated—do not wait for symptoms.","WHO Category I (usually no exposure): touching or feeding an animal, or a lick on intact skin. If skin is intact and history is reliable, rabies PEP is generally not needed; wash exposed skin.","Category II (exposure): nibbling of uncovered skin, or minor scratches/abrasions without bleeding. Wash and seek prompt care; rabies vaccine is generally recommended.","Category III (severe exposure): any bite or scratch that penetrates skin, saliva on broken skin or eyes/mouth, or direct bat contact. Wash and seek urgent care; vaccine plus RIG is generally recommended for people not previously vaccinated. Previously vaccinated people need a different vaccine schedule and generally should not receive RIG.","Have a clinician also assess tetanus vaccination, wound infection risk, and whether antibiotics are needed. If safe, note the animal and owner/vaccination details, but do not delay care."],dont:["Do not judge rabies risk by how small the wound looks; risk depends on the exposure and local epidemiology.","Do not wait for symptoms, cauterize the wound, suck it, apply irritants, or try to catch/handle the animal. Do not self-administer vaccine or RIG; these require clinical assessment."]}}};
+function showGuide(k){let g=G[k],e=document.getElementById("guide");e.innerHTML=`<h3>${g.name}</h3>${k==="cpr"?`<div class="cpr-demo"><h4>Compression and full chest recoil</h4><div class="cpr-animation" role="img" aria-label="Simple looping illustration of chest compressions followed by full release"><div class="cpr-person"></div><div class="cpr-hands"></div></div><p class="small muted">Illustrative animation only: push down, then release completely. Aim for 100–120 compressions each minute.</p><div class="aed-safety-visual" role="img" aria-label="AED safety sequence: attach pads, stand clear during analysis, shock only if prompted, restart CPR"><div><span>🩹</span><b>Attach pads</b></div><div><span>✋</span><b>Everyone clear</b></div><div><span>⚡</span><b>Shock if prompted</b></div><div><span>❤️</span><b>Resume CPR</b></div></div><div class="aed-steps"><b>AED quick steps — follow the prompts</b><ol><li>Turn the AED on immediately and follow its spoken and visual instructions throughout.</li><li>Expose and dry the chest if needed; attach pads exactly as pictured on the pads.</li><li>When the AED says “analyzing,” make sure nobody is touching the person.</li><li>If it says “shock advised,” loudly say “Clear,” check nobody is touching them, and press the shock button only when the AED tells you to. Some AEDs deliver the shock automatically—stay clear.</li><li>After the shock—or if it says “no shock advised”—resume CPR immediately when instructed. Continue following the AED prompts until emergency responders take over or the person shows clear signs of life.</li></ol></div></div>`:k==="drowning"?`<div class="aed-steps"><b>Rescue sequence</b><div class="drowning-visual" role="img" aria-label="Illustrated sequence: reach or throw flotation, remove person from water safely, check breathing, give rescue breaths and CPR"><div class="drown-step"><span>🪝</span><b>Reach / throw</b><small>Stay on shore if untrained</small></div><div class="drown-step"><span>🫁</span><b>Check breathing</b><small>Once safely out</small></div><div class="drown-step"><span>❤️</span><b>CPR + breaths</b><small>If not breathing normally</small></div></div></div>`:""}<span class="pill">What to do</span><ul>${g.do.map(t=>`<li>${t}</li>`).join("")}</ul><div class="dont"><b>What not to do</b><ul>${g.dont.map(t=>`<li>${t}</li>`).join("")}</ul></div><p><b>Important:</b> Contact local emergency services for urgent situations.</p>`;e.classList.add("show");e.scrollIntoView({behavior:"smooth",block:"nearest"});}
+function getHelp(){let q=document.getElementById("question").value.toLowerCase(),k=q.includes("drown")||q.includes("water rescue")?"drowning":q.includes("car accident")||q.includes("crash")||q.includes("car window")||q.includes("headrest")?"carcrash":q.includes("fire")||q.includes("extinguisher")||q.includes("fire blanket")?"burn":q.includes("electric")||q.includes("electrocution")||q.includes("shock")?"electrocution":q.includes("burn")?"burn":q.includes("chok")?"choking":q.includes("bleed")||q.includes("blood")?"bleeding":q.includes("fract")||q.includes("broken bone")?"fracture":q.includes("seiz")||q.includes("fit")?"seizure":q.includes("unconscious")||q.includes("not breathing")||q.includes("cpr")||q.includes("aed")?"cpr":q.includes("tourniquet")?"tourniquet":q.includes("epipen")||q.includes("epinephrine")||q.includes("allerg")?"epipen":q.includes("insulin")||q.includes("diabetes")?"insulin":q.includes("medicine")||q.includes("pill")||q.includes("injection")?"medicine":q.includes("bite")||q.includes("scratch")||q.includes("rabies")?"animalbite":null;let a=document.getElementById("answer");a.classList.add("show");a.innerHTML=k?`<b>Relevant guide: ${G[k].name}</b><p>Open the first-aid guide for general steps. This tool cannot diagnose or assess urgency. If this may be an emergency, call local emergency services now.</p><button class="btn secondary" onclick="showGuide('${k}')">Open guide</button>`:"<b>No matching topic found.</b><p>If someone may be in immediate danger, call local emergency services now. Browse the first-aid guides or seek professional care."; }
+function findHospitals(){if(!navigator.geolocation){window.open("https://www.google.com/maps/search/hospitals+near+me","_blank");return;}navigator.geolocation.getCurrentPosition(p=>{let u=`https://www.google.com/maps/search/hospitals/@${p.coords.latitude},${p.coords.longitude},14z`;window.open(u,"_blank","noopener");},()=>window.open("https://www.google.com/maps/search/hospitals+near+me","_blank"),{timeout:8000});}
+</script><script>
+document.addEventListener("DOMContentLoaded",()=>{
+const cues=[
+[/cpr|cardiac arrest|aed/,"Check response • Call • Compress"],
+[/chok/,"Ask: Can you cough or speak?"],
+[/electric|electrocution|shock/,"Power off first • Do not touch"],
+[/fire|extinguisher|blanket/,"Escape first • Fight only small fires"],
+[/car accident|crash|headrest/,"Protect the scene • Call for help"],
+[/drown|water rescue/,"Reach or throw • Don’t enter unsafely"],
+[/fracture|spine|neck/,"Keep still • Support as found"],
+[/bleed|blood/,"Firm, continuous pressure"],
+[/burn|heat|scald/,"Cool with running water"],
+[/seizure|fit/,"Protect • Time • Check breathing"],
+[/bite|rabies|animal/,"Wash wound • Seek medical care"],
+[/tourniquet/,"Severe limb bleed • Get urgent help"],
+[/epipen|allerg/,"Use prescribed auto-injector promptly"],
+[/insulin|diabetes/,"Check safety • Get medical advice"],
+[/medicine|pill/,"Check label • Never force swallowing"],
+[/bandage/,"Cover gently • Don’t impair circulation"]
+];
+document.querySelectorAll("#cards .card").forEach(card=>{
+if(card.querySelector(".visual-prompt")) return;
+const key=(card.dataset.key||"").toLowerCase();
+const cue=cues.find(([re])=>re.test(key));
+if(!cue)return;
+const bar=document.createElement("div");
+bar.className="visual-prompt";
+bar.innerHTML='<span class="prompt-dot" aria-hidden="true"></span><span></span>';
+bar.querySelector("span:last-child").textContent=cue[1];
+const visual=card.querySelector(".med-visual");
+if(visual)visual.insertAdjacentElement("afterend",bar);
+else card.insertAdjacentElement("afterbegin",bar);
+});
+});
+</script><script>
+(()=>{
+const tiles=[...document.querySelectorAll("#topicHub [data-find]")];
+const cards=[...document.querySelectorAll("#cards .card")];
+function selectTopic(tile){
+const term=tile.dataset.find.toLowerCase();
+let card=cards.find(c=>(c.dataset.key||"").toLowerCase().includes(term));
+if(!card){
+const map={cpr:["aed","cardiac","cpr"],chok:["choking"],bleed:["bleeding"],burn:["burn"],fracture:["fracture"],electric:["electrocution"],baby:["baby"],vitals:["vitals","vital signs"],danger:["danger signs"],ingestion:["ingestion"],bite:["animal bites"],drown:["drowning"],fire:["fire"],car:["car accident"]};
+card=cards.find(c=>(c.dataset.key||"").toLowerCase().split(" ").some(k=>(map[term]||[term]).includes(k)));
+}
+if(!card) card=cards.find(c=>c.innerText.toLowerCase().includes(term));
+if(!card)return;
+cards.forEach(c=>{c.classList.toggle("active-topic",c===card);c.hidden=c!==card;});
+tiles.forEach(t=>{const active=t===tile;t.setAttribute("aria-selected",String(active));t.setAttribute("tabindex",active?"0":"-1");});
+const grid=document.querySelector("#cards");
+grid.setAttribute("role","tabpanel");
+grid.setAttribute("aria-label",tile.innerText.trim()+" first-aid information");
+card.scrollIntoView({behavior:"smooth",block:"start"});
+}
+tiles.forEach((tile,i)=>{
+tile.setAttribute("role","tab");tile.setAttribute("aria-selected","false");
+tile.setAttribute("tabindex",i===0?"0":"-1");
+tile.addEventListener("click",()=>selectTopic(tile));
+tile.addEventListener("keydown",e=>{
+if(e.key==="ArrowRight"||e.key==="ArrowLeft"){
+e.preventDefault();const next=(i+(e.key==="ArrowRight"?1:-1)+tiles.length)%tiles.length;
+tiles[next].focus();selectTopic(tiles[next]);
+}
+});
+});
+if(tiles.length)selectTopic(tiles[0]);
+})();
+</script></body></html>
